@@ -11,10 +11,9 @@ cask "ampere" do
 
   app "Ampere.app"
 
-  uninstall delete: [
-                      "/usr/local/bin/az-ampere-smc",
-                      "/etc/sudoers.d/az-ampere",
-                    ]
-
-  zap trash: "~/Library/Preferences/com.az-code-lab.ampere.plist"
+  zap trash: "~/Library/Preferences/com.az-code-lab.ampere.plist",
+      delete: [
+                "/usr/local/bin/az-ampere-smc",
+                "/etc/sudoers.d/az-ampere",
+              ]
 end
