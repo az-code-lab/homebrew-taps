@@ -1,6 +1,6 @@
 cask "ampere" do
-  version "0.0.39"
-  sha256 "ab6cdeedb79af6341fa5bb7bfa06a55f37b9d33b84c183388e5f4d13369198c3"
+  version "0.0.36"
+  sha256 "1f5dedcdbb443bf615d8786655491928b036400013116e5270bdf4e7fe530f0c"
 
   url "https://github.com/elgs/ampere/releases/download/v#{version}/Ampere.dmg"
   name "Ampere"
