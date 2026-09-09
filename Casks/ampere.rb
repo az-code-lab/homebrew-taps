@@ -5,7 +5,7 @@ cask "ampere" do
   url "https://github.com/az-code-lab/ampere/releases/download/v#{version}/Ampere.dmg"
   name "Ampere"
   desc "Menu bar app for monitoring battery status and controlling charging"
-  homepage "https://github.com/az-code-lab/ampere"
+  homepage "https://amperebattery.app/"
 
   depends_on macos: :sonoma
 
