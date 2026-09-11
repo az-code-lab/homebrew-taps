@@ -12,26 +12,16 @@ cask "ampere" do
   app "Ampere.app"
 
   # A graceful quit restores charging and sleep settings itself. A stuck
-  # app is killed instead; its root watchdog then restores them.
+  # app is killed instead; its root watchdog then restores them. Nothing
+  # else is removed here, and no further stanza is needed for the rest:
+  # Homebrew runs this stanza during `brew upgrade` too, so removing the
+  # helper or the preferences here would cost an admin prompt and the
+  # settings on every upgrade. Instead the app registers a root launchd
+  # job that watches the bundle. Once the bundle has been gone for two
+  # minutes, the job has the helper restore the system and remove the
+  # helper, its sudoers rule, its state, the job itself, and every
+  # account's preferences and caches, so a plain `brew uninstall` ends as
+  # if the app had never been installed.
   uninstall quit:   "com.az-code-lab.ampere",
             signal: [["TERM", "com.az-code-lab.ampere"], ["KILL", "com.az-code-lab.ampere"]]
-
-  # Restore before deleting the helper, in case nothing was running to do
-  # it. The helper exists only once charge control has been enabled. A
-  # successful restore empties the state directory; a failed one leaves
-  # the saved settings for the still-running watchdog to retry, so the
-  # directory is only removed when empty.
-  zap script: {
-        executable:   "/bin/sh",
-        args:         ["-c", "h=/Library/PrivilegedHelperTools/az-ampere-smc; if [ -x $h ]; then $h restore; fi"],
-        sudo:         true,
-        must_succeed: false,
-      },
-      delete: [
-        "/etc/sudoers.d/az-ampere",
-        "/Library/PrivilegedHelperTools/az-ampere-smc",
-        "/usr/local/bin/az-ampere-smc",
-      ],
-      trash:  "~/Library/Preferences/com.az-code-lab.ampere.plist",
-      rmdir:  "/Library/Application Support/az-ampere"
 end
