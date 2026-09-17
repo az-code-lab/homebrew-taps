@@ -7,7 +7,8 @@ cask "ampere" do
   desc "Menu bar app for monitoring battery status and controlling charging"
   homepage "https://amperebattery.app/"
 
-  depends_on macos: :sonoma
+  depends_on arch: :arm64
+  depends_on macos: :tahoe
 
   app "Ampere.app"
 
