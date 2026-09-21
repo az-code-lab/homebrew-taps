@@ -8,13 +8,13 @@
 # version/sha256 are placeholders. A real value never lives in this file:
 # release.sh knows them only after it has built and hashed the DMG.
 cask "dbclient" do
-  version "0.1.2"
-  sha256 "eb8907ff322e2ed425ea68169e049020d1dbea3af308147fa718588497ef0ae7"
+  version "0.1.3"
+  sha256 "96d004d3c29ffa1a5c3a19e0b2a7f1ca6fd7abb825d516548493e18826bc3ee7"
 
   url "https://github.com/az-code-lab/dbclient-releases/releases/download/v#{version}/DBClient.dmg"
   name "DBClient"
   desc "Database client for PostgreSQL, MySQL, MongoDB, Redis, and other engines"
-  homepage "https://github.com/az-code-lab/dbclient-releases"
+  homepage "https://dbclient.net/"
 
   # A bare symbol is already the MINIMUM release, not an exact match — the
   # ">= :sequoia" string still parses, but `brew style` rewrites it. This is
