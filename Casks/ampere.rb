@@ -8,7 +8,7 @@ cask "ampere" do
   homepage "https://amperebattery.app/"
 
   depends_on arch: :arm64
-  depends_on macos: :tahoe
+  depends_on macos: :sequoia
 
   app "Ampere.app"
 
