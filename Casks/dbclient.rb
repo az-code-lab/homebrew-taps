@@ -28,6 +28,14 @@ cask "dbclient" do
 
   app "DBClient.app"
 
+  # Quit the running app before an upgrade replaces its bundle. Homebrew
+  # reopens the apps it quit once the new version is in place, so what runs
+  # after `brew upgrade` is the new version, not the old process carrying on
+  # until someone quits it. A dialog that holds the quit past Homebrew's
+  # ten-second wait is left alone: Homebrew warns, still replaces the files,
+  # and the new version opens at the next launch.
+  uninstall quit: "dev.azcode.DBClient"
+
   # Saved connections live in Application Support; their passwords live in the
   # keychain under "dev.azcode.dbclient.connections", which a cask cannot
   # remove — `zap` deletes files, not keychain items. The Containers path is
