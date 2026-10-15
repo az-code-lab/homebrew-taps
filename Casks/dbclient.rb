@@ -8,8 +8,8 @@
 # version/sha256 are placeholders. A real value never lives in this file:
 # release.sh knows them only after it has built and hashed the DMG.
 cask "dbclient" do
-  version "0.3.0"
-  sha256 "bc2837d9fa72c8f6248279dd2f9119b60750cc3c025276247936ba1a9c2fcd35"
+  version "0.3.1"
+  sha256 "40fa227b8d9c0cba5a9986fc938a026d3ff9d0f99fc8259cb18ac29bcefd6415"
 
   url "https://github.com/az-code-lab/dbclient-releases/releases/download/v#{version}/DBClient.dmg"
   name "DBClient"
