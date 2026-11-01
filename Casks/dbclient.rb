@@ -8,8 +8,8 @@
 # version/sha256 are placeholders. A real value never lives in this file:
 # release.sh knows them only after it has built and hashed the DMG.
 cask "dbclient" do
-  version "0.3.8"
-  sha256 "f50954bf64bca5be19500cbba467edce890d70710c27e13c99d5b8cf5f799b31"
+  version "0.3.9"
+  sha256 "c94c3884999f99772c2c73902bcef02f857c10766e474e58c0194889ad726a7c"
 
   url "https://github.com/az-code-lab/dbclient-releases/releases/download/v#{version}/DBClient.dmg"
   name "DBClient"
@@ -17,13 +17,13 @@ cask "dbclient" do
   homepage "https://dbclient.net/"
 
   # A bare symbol is already the MINIMUM release, not an exact match — the
-  # ">= :sequoia" string still parses, but `brew style` rewrites it. This is
-  # LSMinimumSystemVersion 15.0 said in Homebrew's words.
+  # ">= :tahoe" string still parses, but `brew style` rewrites it. This is
+  # LSMinimumSystemVersion 26.0 said in Homebrew's words.
   #
   # Apple Silicon only, and not by choice: the SQL Server driver links
   # Homebrew's FreeTDS, which ships arm64-only, so there is no x86_64 slice to
   # build. Without this an Intel Mac installs the app and then cannot open it.
-  depends_on macos: :sequoia
+  depends_on macos: :tahoe
   depends_on arch: :arm64
 
   app "DBClient.app"
