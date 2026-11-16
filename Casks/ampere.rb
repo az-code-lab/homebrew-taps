@@ -1,6 +1,6 @@
 cask "ampere" do
-  version "0.0.72"
-  sha256 "8d17f0f49ac1fd48db2b05d27dd468805ddf1526ce3a6f5a3004802bf0e54e8f"
+  version "0.0.73"
+  sha256 "65bcc416c5eea427d6f3eb514020db701431103be83bc562d14bff851bc9d293"
 
   url "https://github.com/az-code-lab/ampere/releases/download/v#{version}/Ampere.dmg"
   name "Ampere"
